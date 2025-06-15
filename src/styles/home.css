@@ -1,0 +1,18 @@
+#main-bg{
+    background-image: url("../image/main.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+@media (max-width: 768px) {
+    #main-bg {
+        background-size: cover;
+        height: 50vh;
+    } }
+
+#home-btn:hover{
+    color: #796706;
+}
+#home-btn{
+    transition: color 0.3s ease;
+}

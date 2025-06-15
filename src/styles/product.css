@@ -1,0 +1,24 @@
+#scale-in-hover {
+    transform: scale(1.05);
+        /* Start slightly zoomed in */
+        transition: transform 0.4s ease, box-shadow 0.2s ease;
+}
+
+#scale-in-hover:hover {
+    transform: scale(1);
+        /* Shrink to normal on hover */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        /* optional */
+}
+#add-cart {
+    transform: scale(1.05);
+    /* Start slightly zoomed in */
+    transition: transform 0.4s ease, box-shadow 0.2s ease;
+}
+
+#add-cart:hover {
+    transform: scale(1);
+    /* Shrink to normal on hover */ 
+    background-color: #796706 ;
+    color: white;
+}

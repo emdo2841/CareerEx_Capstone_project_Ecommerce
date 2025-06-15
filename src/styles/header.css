@@ -1,0 +1,37 @@
+#header-button,
+#cart-button {
+    position: relative;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#header-button::after
+ {
+    content: "";
+    position: absolute;
+    bottom: 0.2rem;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #796706;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+#header-button:hover::after
+ {
+    width: 100%;
+}
+
+#header-button:hover,
+#cart-button:hover {
+    color: #796706;
+}
+#search:hover{
+    color: #796706;
+}
