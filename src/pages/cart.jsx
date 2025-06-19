@@ -69,6 +69,7 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import "../styles/header.css"
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, getTotalPrice } = useCart();
@@ -131,7 +132,7 @@ const Cart = () => {
         <p className="text-lg font-bold text-black">
           Total: NGN {getTotalPrice()}
         </p>
-        <button
+        <button id="header-button"
           className="px-5 py-2 bg-black text-[#796706] font-medium rounded-md hover:bg-gray-900"
           onClick={() => navigate(`/transact`)}
         >

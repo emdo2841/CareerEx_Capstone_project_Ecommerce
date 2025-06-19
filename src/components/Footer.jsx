@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-200 pt-6 text-center text-sm text-gray-500">
+        <div className="mt-10 border-t border-gray-200 pt-4 pb-4 h-2 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} EJ Premium. All rights reserved.
         </div>
       </div>

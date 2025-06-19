@@ -57,44 +57,48 @@ const Home = () => {
           </h2>
           <section className="w-full flex justify-center">
             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 w-full gap-8 mt-8 m-4 p-2">
-              <div className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
+              <div id="apple" className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
                 <h2 className="font-mono text-2xl text-center">
                   Apple Products
                 </h2>
                 <button
+                  id="home-button"
                   className="font-bold text-2xl rounded-md border-none cursor-pointer mt-4 bg-[black] text-[#796706] px-4 py-2 "
                   onClick={() => navigate("/brand/67e25f272580c101f6e84e9e")}
                 >
                   Shop
                 </button>
               </div>
-              <div className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
+              <div id="samsung" className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
                 <h2 className="font-mono text-2xl text-center">
                   Samsung Products
                 </h2>
                 <button
+                  id="home-button"
                   className="font-bold text-2xl rounded-md border-none cursor-pointer mt-4 bg-[black] text-[#796706] px-4 py-2"
                   onClick={() => navigate("brand/67e25dad2580c101f6e84e92")}
                 >
                   Shop
                 </button>
               </div>
-              <div className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
+              <div id="hp" className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
                 <h2 className="font-mono text-2xl text-center">
                   Hewlett-Packard Products
                 </h2>
                 <button
+                  id="home-button"
                   className="font-bold text-2xl rounded-md border-none cursor-pointer mt-4 bg-[black] text-[#796706] px-4 py-2 "
                   onClick={() => navigate("/brand/67e25de02580c101f6e84e94")}
                 >
                   Shop
                 </button>
               </div>
-              <div className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
+              <div id="dell" className="bg-gray-100 h-64 rounded-lg flex flex-col justify-center items-center font-bold">
                 <h2 className="font-mono text-2xl text-center">
                   Dell Products
                 </h2>
                 <button
+                  id="home-button"
                   className="font-bold text-2xl rounded-md border-none cursor-pointer mt-4 bg-[black] text-[#796706] px-4 py-2"
                   onClick={() => navigate("brand/67e25e392580c101f6e84e96")}
                 >

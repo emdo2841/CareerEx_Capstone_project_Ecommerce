@@ -1,22 +1,21 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, Search, Menu, X } from "lucide-react";
 // import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import "../styles/header.css"
+import "../styles/header.css";
 import { useSearch } from "../context/SearchContext";
-import CartIcon from "./CartIcon"
-import CartCount from "../utilities/cartCount"
+import CartIcon from "./CartIcon";
+import CartCount from "../utilities/cartCount";
 
 const Header = () => {
   const buttons = [
     { name: "Shop", link: "/shop" },
-    {name: "Products", link:"product"},
+    { name: "Products", link: "product" },
     { name: "Deals", link: "/hot-deals" },
     { name: "About", link: "/about" },
   ];
-  const [menuOpen, setMenuOpen] = useState(false)
-  const {  setSearchOpen } = useSearch();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { setSearchOpen } = useSearch();
   const navigate = useNavigate();
 
   return (
@@ -51,9 +50,9 @@ const Header = () => {
             <button
               id="cart-button"
               onClick={() => navigate("/cart")}
-              className="bg-white text-black font-semibold  rounded-md px-4 py-2  border-none cursor-pointer "
+              className="bg-white text-black font-semibold rounded-md px-4 py-2 border-none cursor-pointer"
             >
-              <CartIcon size={24} itemCount={<CartCount />} />
+              <CartIcon size={24} />
             </button>
             {/* mobile navigation */}
             <button

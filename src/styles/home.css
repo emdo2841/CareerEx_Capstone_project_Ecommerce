@@ -10,9 +10,23 @@
         height: 50vh;
     } }
 
-#home-btn:hover{
+#header-button:hover,#home-btn:hover{
     color: #796706;
 }
 #home-btn{
     transition: color 0.3s ease;
+}
+
+#apple{
+    background-image: url("../image/apple.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+}
+#samsung{
+    background-image: url("../image/samsung.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+     
 }
