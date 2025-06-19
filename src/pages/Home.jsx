@@ -1,7 +1,7 @@
+import ProductsWrapper from "../components/ProductWrapper";
 import { useSearch } from "../context/SearchContext";
 import "../styles/home.css";
 import {useNavigate} from "react-router-dom"
-import Products from "./Product";
 
 const Home = () => {
   const { searchOpen } = useSearch();
@@ -19,14 +19,14 @@ const Home = () => {
             {/* First div: hidden on mobile, shown on md+ with button */}
             <div className="hidden md:flex w-full md:w-1/3 bg-white rounded-lg h-[85vh] items-center justify-start">
               <div className="flex flex-col items-center justify-start ">
-                <h2 className="font-extrabold font-mono text-3xl text-black text-wrap">
+                <h2 className="font-extrabold font-mono text-start text-3xl text-black text-wrap">
                   BOLD, BIGGER AND IMPACTFUL EXPERIENCE
                 </h2>
-                <p className="mr-55 text-black font-mono text-xl mt-1">
+                <p className="text-black text-start font-mono text-xl mt-1">
                   Accessories For Me
                 </p>
                 <button
-                  className="font-bold text-2xl rounded-lg border-none cursor-pointer mr-55 mt-2 bg-[black] text-[#796706] px-8 py-2"
+                  className="font-bold text-2xl rounded-lg border-none cursor-pointer  mt-2 bg-[black] text-[#796706] px-8 py-2"
                   onClick={() => navigate("/product")}
                 >
                   Show now
@@ -51,6 +51,7 @@ const Home = () => {
           </section>
 
           {/* Responsive grid */}
+          <ProductsWrapper mobile={4} desktop={8} />
           <h2 className="text-black font-bold text-2xl text-center mt-5">
             Fast selling Collections
           </h2>
@@ -102,7 +103,6 @@ const Home = () => {
               </div>
             </section>
           </section>
-          <Products limit={4} />
         </div>
       </main>
     </div>
