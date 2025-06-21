@@ -21,7 +21,7 @@ const ErrorPage = ({ message = "Page not found", status = 404 }) => {
 
       <button
         onClick={() => navigate("/")}
-        className="px-6 py-3 font-bold text-xl font-mono bg-black text-[#796706] rounded-md hover:bg-gray-900 transition-colors"
+        className="px-6 py-3 font-bold text-xl font-mono bg-black text-[#796706] rounded-md hover:bg-gray-900 transition-colors cursor-pointer"
       >
         Back to Home
       </button>

@@ -29,7 +29,7 @@ const Home = () => {
                   className="font-bold text-2xl rounded-lg border-none cursor-pointer  mt-2 bg-[black] text-[#796706] px-8 py-2"
                   onClick={() => navigate("/product")}
                 >
-                  Show now
+                  Shop now
                 </button>
               </div>
             </div>

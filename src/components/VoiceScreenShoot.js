@@ -5,8 +5,8 @@ const VoiceScreenshot = ({ triggerKeyword = "take screenshot" }) => {
   const recognitionRef = useRef(null);
 
   useEffect(() => {
-    // Check for browser support
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       console.warn("Speech recognition not supported");
       return;
@@ -17,9 +17,11 @@ const VoiceScreenshot = ({ triggerKeyword = "take screenshot" }) => {
     recognition.lang = "en-US";
 
     recognition.onresult = async (event) => {
-      const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+      const transcript = event.results[event.results.length - 1][0].transcript
+        .trim()
+        .toLowerCase();
       console.log("Voice Command:", transcript);
-      
+
       if (transcript.includes(triggerKeyword.toLowerCase())) {
         takeScreenshot();
       }
@@ -35,27 +37,44 @@ const VoiceScreenshot = ({ triggerKeyword = "take screenshot" }) => {
     return () => recognition.stop();
   }, [triggerKeyword]);
 
+  const stripUnsupportedColors = () => {
+    const allElements = document.querySelectorAll("*");
+
+    allElements.forEach((el) => {
+      const computed = window.getComputedStyle(el);
+
+      // Force override inline if "oklch" is found in computed styles
+      if (computed.color.includes("oklch")) {
+        el.style.setProperty("color", "#000", "important");
+      }
+
+      if (computed.backgroundColor.includes("oklch")) {
+        el.style.setProperty("background-color", "#fff", "important");
+      }
+
+      if (computed.borderColor && computed.borderColor.includes("oklch")) {
+        el.style.setProperty("border-color", "#ccc", "important");
+      }
+    });
+  };
+
   const takeScreenshot = async () => {
-    const element = document.body; // Capture full screen; or use a specific ref
+    const element = document.body;
     try {
+      stripUnsupportedColors(); // Fix oklch before rendering
       const canvas = await html2canvas(element);
       const imgData = canvas.toDataURL("image/png");
 
-      // Optionally download image
       const link = document.createElement("a");
       link.href = imgData;
       link.download = "screenshot.png";
       link.click();
-
-      // Or just display it:
-      // const newTab = window.open();
-      // newTab.document.body.innerHTML = `<img src="${imgData}" alt="Screenshot" />`;
     } catch (err) {
       console.error("Screenshot failed", err);
     }
   };
 
-  return null; // This component only listens and triggers
+  return null;
 };
 
 export default VoiceScreenshot;

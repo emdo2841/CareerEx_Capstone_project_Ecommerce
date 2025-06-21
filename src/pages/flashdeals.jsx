@@ -16,7 +16,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import "../styles/product.css";
 import Collections from "../components/Collections";
 
-const Products = ({ limit = 20 }) => {
+const FlashProducts = ({ limit = 20 }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,17 +27,17 @@ const Products = ({ limit = 20 }) => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const { addToCart } = useCart();
-  const [searchParams] = useSearchParams();
-  const q = searchParams.get("q") || "";
+  
+  
   const url = "/product";
   const { searchOpen } = useSearch();
 
   useEffect(() => {
     const product =  async () => {
       try {
-        let url = `/product?page=${page}&limit=${limit}`;
-        if (q) url += `&search=${encodeURIComponent(q)}`;
-        const response = await api.get(url);
+        const response = await api.get(
+            `/product/flash-sale?page=${page}&limit=${limit}`
+          );
         setProducts(response.data.data || []);
         setTotalProducts(response.data.total || 0);
       } catch (error) {
@@ -48,7 +48,7 @@ const Products = ({ limit = 20 }) => {
       }
     };
     product();
-  }, [limit, page, q, url]);
+  }, [limit, page, url]);
 
   if (loading) {
     return (
@@ -98,19 +98,9 @@ const Products = ({ limit = 20 }) => {
           <div className="absolute inset-0 z-10 backdrop-blur-sm bg-white/10 pointer-events-none" />
         )}
 
-        <div className="flex items-center justify-start">
-          {q && (
-            <h4 className="text-3xl font-medium">
-              Showing results for “{q}” Product
-            </h4>
-          )}
-        </div>
+        
 
-        {!q && (
-          <div className="flex justify-end m-4">
-            <h2 className="font-medium text-4xl">Products</h2>
-          </div>
-        )}
+       
         <div>
           <div className="flex justify-center gap-8 ">
             {/* Sidebar - Only show if not home */}
@@ -130,7 +120,7 @@ const Products = ({ limit = 20 }) => {
                     getItemUrl={(item) => `/category/${item._id}`}
                   />
                   <button
-                    className="border-none bg-white shadow-md text-lg font-medium text-gray-700 cursor-pointer"
+                    className="border-none bg-white shadow-md text-lg font-medium text-gray-700 cursor-deals"
                     onClick={() => navigate("/flash-deals")}
                   >
                     Deals
@@ -211,4 +201,4 @@ const Products = ({ limit = 20 }) => {
   );
 };
 
-export default Products;
+export default FlashProducts;

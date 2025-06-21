@@ -15,7 +15,7 @@ const Err = ({ url }) => {
           className="px-4 py-2 rounded-lg bg-[#796706] text-black cursor-pointer hover:bg-yellow-400"
           onClick={() => navigate(url)}
         >
-          Try Again
+          <a href={url}>Try Again </a>
         </button>
       </div>
     </div>

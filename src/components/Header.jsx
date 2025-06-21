@@ -9,9 +9,9 @@ import CartCount from "../utilities/cartCount";
 
 const Header = () => {
   const buttons = [
-    { name: "Shop", link: "/shop" },
-    { name: "Products", link: "product" },
-    { name: "Deals", link: "/hot-deals" },
+    
+    { name: "Shop", link: "product" },
+    { name: "Deals", link: "/flash-deals" },
     { name: "About", link: "/about" },
   ];
   const [menuOpen, setMenuOpen] = useState(false);
